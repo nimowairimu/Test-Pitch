@@ -1,9 +1,8 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from ..models import Pitch,User,Upvote,Downvote, Comment
-from flask.views import View,MethodView
 from flask_login import login_required, current_user
-from .forms import PitchForm,CommentForm, UpvoteForm
+from .forms import PitchForm,CommentForm, UpvoteForm,UpdateProfile
 from .. import db,photos
 
 # Views
@@ -114,7 +113,7 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
-    
+
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(uname):
