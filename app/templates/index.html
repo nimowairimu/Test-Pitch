@@ -1,17 +1,40 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+{% import 'macros.html' as macro %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best Movie Review website </title>
-        {% endif %}
-    </head>
-    <body>
+{% block content %}
 
-    </body>
-</html>
+    
+        <div  class="container">
+                <h1 class="text-center" id="posts">Welcome to  Pitch App</h2>
+                <h4 class="text-center" id="post">Get the best pitches to ace in your new job and make sales.</h4>
+            <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+                <li class="nav-item" >
+                    <a id ="cats" class="nav-link" data-toggle="tab" href="#all"><strong>All Pitches</strong> </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats" data-toggle="tab" href="#enterpreneur">Enterpreneur Pitches</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats" data-toggle="tab" href="#interview">Interview Pitches</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id ="cats"data-toggle="tab" href="#sales">Sales Pitches</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div  class="container tab-pane active" id="all"><br>
+                    {{ macro.display(pitch) }}
+                </div>
+                <div  class="container tab-pane fade" id="enterpreneur"><br>
+                    {{ macro.display(enterpreneur)}}
+                </div>
+                <div  class="container tab-pane fade" id="interview">
+                    {{ macro.display(interview) }}
+                </div>
+                <div  class="container tab-pane fade" id="sales"><br>
+                    {{ macro.display(sales) }}
+                    
+                </div>
+            </div>
+        </div>
+{% endblock%}

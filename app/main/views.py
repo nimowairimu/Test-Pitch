@@ -13,7 +13,7 @@ def index():
     '''
     pitch = Pitch.query.filter_by().first()
     title = 'Main'
-    enterpreneur = Pitch.query.filter_by(category="enterpreneur)
+    enterpreneur = Pitch.query.filter_by(category="enterpreneur")
     interview= Pitch.query.filter_by(category = "interview")
     sales = Pitch.query.filter_by(category = "sales")
     
